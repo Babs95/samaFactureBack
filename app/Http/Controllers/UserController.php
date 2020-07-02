@@ -169,9 +169,8 @@ class UserController extends Controller
     }
 
     public function GetLogin($login, $password) {
-        $qry = "SELECT u.id,u.login,u.password,e.nom,e.prenom,p.libelle as profil,f.libelle as fonction
-        FROM users u,profils p,employes e,fonctions f WHERE u.id = e.user_id AND  f.id = e.fonction_id AND p.id = u.profil_id
-        AND u.login = '".$login."'  AND u.password = '".$password."' ";
+        $qry = "SELECT id,login,password,nom,prenom,email
+        FROM users WHERE login = '".$login."'  AND password = '".$password."' ";
         $data = DB::select($qry);
         return response()->json($data, '200');
     }
