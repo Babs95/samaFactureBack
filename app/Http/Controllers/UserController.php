@@ -173,9 +173,15 @@ class UserController extends Controller
         FROM users WHERE login = '".$login."'  AND password = '".$password."' ";
         $data = DB::select($qry);
         //if ($data)
-        $response["users"] = $data;
-        $response["success"] = 1;
-        return response()->json($response);
+        if(empty($data)){
+            $response["success"] = "KO";
+            return response()->json($response);
+        } else {
+            $response["users"] = $data;
+            $response["success"] = "OK";
+            return response()->json($response);
+        }
+
         //return response()->json($data, '200');
     }
 
