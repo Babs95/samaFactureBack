@@ -175,11 +175,12 @@ class UserController extends Controller
         //if ($data)
         if(empty($data)){
             $response["success"] = "KO";
-            return response()->json($response);
+            return "KO";
         } else {
             $response["users"] = $data;
             $response["success"] = "OK";
-            return response()->json($response);
+            //return response()->json($response);
+            return "KO";
         }
 
         //return response()->json($data, '200');
