@@ -172,7 +172,9 @@ class UserController extends Controller
         $qry = "SELECT id,login,password,nom,prenom,email
         FROM users WHERE login = '".$login."'  AND password = '".$password."' ";
         $data = DB::select($qry);
-        return response()->json($data, '200');
+        //if ($data)
+        //return response()->json($data, '200');
+        return $data;
     }
 
 
