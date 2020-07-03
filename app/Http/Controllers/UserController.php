@@ -174,13 +174,13 @@ class UserController extends Controller
         $data = DB::select($qry);
         //if ($data)
         if(empty($data)){
-            $response["success"] = "KO";
-            return "KO";
+            $response["status"] = "KO";
+            return  $response;
         } else {
-            $response["users"] = $data;
-            $response["success"] = 1;
+            //$response["users"] = $data;
+            $response["status"] = "OK";
+            return  $response;
             //return response()->json($response);
-            return "OK";
         }
 
         //return response()->json($data, '200');
