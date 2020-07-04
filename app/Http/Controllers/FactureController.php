@@ -79,8 +79,10 @@ class FactureController extends Controller
         $fact->annee_id = $request->post("annee_id");
         $fact->mois_id = $request->post("mois_id");
         $fact->save();
+
+        return $request->post("libelle");
        // $Categorie = Categorie::create($request->all());
-        return response()->json('Added succesfully');
+        //return response()->json('Added succesfully');
     }
      /**
      * Store a newly created resource in storage.
