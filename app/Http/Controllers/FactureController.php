@@ -171,4 +171,10 @@ class FactureController extends Controller
         return $data[0]->id;
     }
 
+    public function Test() {
+        $data = $this->GetAnneeEncours();
+
+        return $data;
+    }
+
 }

@@ -80,6 +80,7 @@ $router->group(['prefix' => 'api/fournisseur'], function () use ($router) {
     $router->post('store', ['uses' => 'FactureController@store']);
     $router->put('update/{id}', ['uses' => 'FactureController@update']);
     $router->get('GetAnneeEncours', ['uses' => 'FactureController@GetAnneeEncours']);
+    $router->get('Test', ['uses' => 'FactureController@Test']);
    });
 
 
