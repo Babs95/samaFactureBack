@@ -34,8 +34,9 @@ class TypepaiementController  extends Controller
             $response["success"] = 0;
             return  $response;
         } else {
-            $response["TypePaiement"] = $data;
             $response["success"] = 1;
+            $response["TypePaiement"] = $data;
+
             return  $response;
             //return response()->json($response);
         }
