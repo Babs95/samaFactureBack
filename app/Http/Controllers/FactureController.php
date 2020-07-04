@@ -77,7 +77,7 @@ class FactureController extends Controller
         $fact->user_id = $request->post("user_id");
         $fact->fournisseur_id = $request->post("fournisseur_id");
         $fact->typepaiement_id = $request->post("typepaiement_id");
-        $fact->annee_id = $request->post("annee_id");
+        $fact->annee_id = $this->GetAnneeEncours();
         $fact->mois_id = $request->post("mois_id");
         $fact->save();
        // $Categorie = Categorie::create($request->all());
@@ -171,10 +171,5 @@ class FactureController extends Controller
         return $data[0]->id;
     }
 
-    public function Test() {
-        $data = $this->GetAnneeEncours();
-
-        return $data;
-    }
 
 }
