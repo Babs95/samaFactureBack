@@ -15,7 +15,7 @@ class CreateAnneesTable extends Migration
     {
         Schema::create('annees', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('password');
+            $table->string('libelle');
             $table->string('etat');
             $table->timestamps();
         });

@@ -63,9 +63,10 @@ class FournisseurController extends Controller
     public function store(Request $request)
     {
 
-         $user=new Fournisseur();
-        $user = Fournisseur::create($request->all());
-        $user->save();
+         $four=new Fournisseur();
+         $four->libelle=$request->post("libelle");
+        //$user = Fournisseur::create($request->all());
+        $four->save();
 
         return response()->json('Added succesfully');
     }

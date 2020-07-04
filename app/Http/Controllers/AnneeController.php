@@ -69,7 +69,7 @@ class AnneeController extends Controller
     {
 
         $annee=new Annee();
-        $annee->libelle=$request->post("libelle");;
+        $annee->libelle=$request->post("libelle");
         $annee->etat=$request->post("etat");
         $annee->save();
        // $Categorie = Categorie::create($request->all());

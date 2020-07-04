@@ -67,10 +67,18 @@ class FactureController extends Controller
     public function store(Request $request)
     {
 
-        $Categorie=new Facture();
-        $Categorie->libelle=$request->post("libelle");;
-        $Categorie->etat=$request->post("etat");
-        $Categorie->save();
+        $fact=new Facture();
+        $fact->libelle = $request->post("libelle");
+        $Date = Carbon::now();
+        $DateNow = $Date->toDateTime()->format('d/m/yy');
+        $fact->datePaiement = $DateNow;
+        $fact->montant = $request->post("montant");
+        $fact->user_id = $request->post("user_id");
+        $fact->fournisseur_id = $request->post("fournisseur_id");
+        $fact->typepaiement_id = $request->post("typepaiement_id");
+        $fact->annee_id = $request->post("annee_id");
+        $fact->mois_id = $request->post("mois_id");
+        $fact->save();
        // $Categorie = Categorie::create($request->all());
         return response()->json('Added succesfully');
     }
