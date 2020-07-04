@@ -68,10 +68,9 @@ class MoisController extends Controller
     public function store(Request $request)
     {
 
-        $Categorie=new Mois();
-        $Categorie->libelle=$request->post("libelle");
-        $Categorie->etat=$request->post("etat");
-        $Categorie->save();
+        $mois=new Mois();
+        $mois->libelle=$request->post("libelle");
+        $mois->save();
        // $Categorie = Categorie::create($request->all());
         return response()->json('Added succesfully');
     }

@@ -68,10 +68,10 @@ class AnneeController extends Controller
     public function store(Request $request)
     {
 
-        $Categorie=new Annee();
-        $Categorie->libelle=$request->post("libelle");;
-        $Categorie->etat=$request->post("etat");
-        $Categorie->save();
+        $annee=new Annee();
+        $annee->libelle=$request->post("libelle");;
+        $annee->etat=$request->post("etat");
+        $annee->save();
        // $Categorie = Categorie::create($request->all());
         return response()->json('Added succesfully');
     }
