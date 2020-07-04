@@ -61,9 +61,10 @@ class TypepaiementController  extends Controller
     public function store(Request $request)
     {
 
-         $user=new Typepaiement();
-        $user = Typepaiement::create($request->all());
-        $user->save();
+         $type=new Typepaiement();
+         $type->libelle=$request->post("libelle");
+       // $type = Typepaiement::create($request->all());
+         $type->save();
 
         return response()->json('Added succesfully');
     }

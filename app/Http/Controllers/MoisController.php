@@ -69,7 +69,7 @@ class MoisController extends Controller
     {
 
         $Categorie=new Mois();
-        $Categorie->libelle=$request->post("libelle");;
+        $Categorie->libelle=$request->post("libelle");
         $Categorie->etat=$request->post("etat");
         $Categorie->save();
        // $Categorie = Categorie::create($request->all());
