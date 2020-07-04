@@ -164,5 +164,10 @@ class FactureController extends Controller
             }
 
     }
+    public function GetAnneeEncours() {
+        $qry = "SELECT id FROM annees WHERE etat = 'Actif' ";
+        $data = DB::select($qry);
+        return response()->json($data, '200');
+    }
 
 }
