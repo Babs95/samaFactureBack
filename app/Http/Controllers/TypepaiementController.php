@@ -30,7 +30,16 @@ class TypepaiementController  extends Controller
 
         //$users = Typepaiement::all();
         $data = $this->service->all();
-        return response()->json($data);
+        if(empty($data)){
+            $response["success"] = 0;
+            return  $response;
+        } else {
+            $response["TypePaiement"] = $data;
+            $response["success"] = 1;
+            return  $response;
+            //return response()->json($response);
+        }
+        return response()->json($response);
 
     }
     public function index()
