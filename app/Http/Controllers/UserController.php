@@ -177,7 +177,7 @@ class UserController extends Controller
             $response["status"] = "KO";
             return  $response;
         } else {
-            //$response["users"] = $data;
+            $response["users"] = $data;
             $response["status"] = "OK";
             return  $response;
             //return response()->json($response);

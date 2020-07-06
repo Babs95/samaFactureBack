@@ -18,6 +18,7 @@ class CreateFacturesTable extends Migration
             $table->string('libelle');
             $table->string('datePaiement');
             $table->string('montant');
+            $table->string('etat');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('fournisseur_id');

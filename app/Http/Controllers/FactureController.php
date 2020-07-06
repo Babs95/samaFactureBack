@@ -74,6 +74,7 @@ class FactureController extends Controller
         $DateNow = $Date->toDateTime()->format('d/m/yy');
         $fact->datePaiement = $DateNow;
         $fact->montant = $request->post("montant");
+        $fact->etat = $request->post("etat");
         $fact->user_id = $request->post("user_id");
         $fact->fournisseur_id = $request->post("fournisseur_id");
         $fact->typepaiement_id = $request->post("typepaiement_id");
