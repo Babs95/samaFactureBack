@@ -169,7 +169,7 @@ class UserController extends Controller
     }
 
     public function GetLogin($login, $password) {
-        $qry = "SELECT id,login,password,nom,prenom,email
+        $qry = "SELECT id,nom,prenom,email,login,password
         FROM users WHERE login = '".$login."'  AND password = '".$password."' ";
         $data = DB::select($qry);
         //if ($data)
@@ -177,7 +177,7 @@ class UserController extends Controller
             $response["status"] = "KO";
             return  $response;
         } else {
-            //$response["users"] = $data;
+            $response["user"] = $data;
             $response["status"] = "OK";
             return  $response;
             //return response()->json($response);
