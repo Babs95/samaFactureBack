@@ -51,8 +51,7 @@ class UserController extends Controller
     {
         $User=new User();
         $data = $User->all();
-        $response["user"] = $data;
-         return response()->json($response);
+         return response()->json($data);
     }
 
 
@@ -68,8 +67,8 @@ class UserController extends Controller
          $user=new User();
         $user = User::create($request->all());
         $user->save();
-
-        return response()->json($user);
+        $response["user"] = $data;
+        return response()->json($response);
     }
      /**
      * Store a newly created resource in storage.
