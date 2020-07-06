@@ -51,7 +51,8 @@ class UserController extends Controller
     {
         $User=new User();
         $data = $User->all();
-         return response()->json($data);
+        $response["user"] = $data;
+         return response()->json($response);
     }
 
 
