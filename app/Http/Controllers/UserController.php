@@ -67,7 +67,7 @@ class UserController extends Controller
          $user=new User();
         $user = User::create($request->all());
         $user->save();
-        $response["user"] = $data;
+        $response["user"] = $user;
         return response()->json($response);
     }
      /**
