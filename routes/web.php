@@ -69,6 +69,7 @@ $router->group(['prefix' => 'api/fournisseur'], function () use ($router) {
     $router->delete('delete/{id}', ['uses' => 'AnneeController@destroy']);
     $router->post('store', ['uses' => 'AnneeController@store']);
     $router->put('update/{id}', ['uses' => 'AnneeController@update']);
+    $router->get('UpdateAnneeEtat/{id}', ['uses' => 'AnneeController@UpdateAnneeEtat']);
 
    });
    /*                   API FACTURE                  */
@@ -79,7 +80,7 @@ $router->group(['prefix' => 'api/fournisseur'], function () use ($router) {
     $router->delete('delete/{id}', ['uses' => 'FactureController@destroy']);
     $router->post('store', ['uses' => 'FactureController@store']);
     $router->put('update/{id}', ['uses' => 'FactureController@update']);
-    $router->get('GetAnneeEncours', ['uses' => 'FactureController@GetAnneeEncours']);
+    $router->get('GetAnneeEncours/{id}', ['uses' => 'FactureController@GetAnneeEncours']);
    });
 
 

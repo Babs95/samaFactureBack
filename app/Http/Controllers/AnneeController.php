@@ -165,5 +165,19 @@ class AnneeController extends Controller
             }
 
     }
+    public function UpdateAnneeEtat($id) {
+        $anne = new Annee();
+        $anne = Annee::where('id', $id)->firstOrFail();
+        $state;
+        if($anne->etat == "Actif"){
+            $state = "Non-Actif";
+        }else{
+            $state = "Actif";
+        }
+        $qry = "UPDATE annees SET etat =  = '".$state."'  WHERE id  = '".$id."'  ";
+        $data = DB::update($qry);
+
+        return $data;
+    }
 
 }
