@@ -174,7 +174,7 @@ class AnneeController extends Controller
         }else{
             $state = "Actif";
         }
-        $qry = "UPDATE annees SET etat =  = '".$state."'  WHERE id  = '".$id."'  ";
+        $qry = "UPDATE annees SET etat ='".$state."'  WHERE id  = '".$id."'  ";
         $data = DB::update($qry);
 
         return $data;
