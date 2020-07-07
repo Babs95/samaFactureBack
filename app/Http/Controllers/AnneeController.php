@@ -30,13 +30,22 @@ class AnneeController extends Controller
     {
 
 
-        $users = Annee::all();
+        //$users = Annee::all();
+        $data = $this->service->all();
+        if(empty($data)){
+            $response["success"] = 0;
+            return  $response;
+        } else {
+            $response["success"] = 1;
+            $response["Annee"] = $data;
 
-       return response()->json($users);
-
-
+            return  $response;
+            //return response()->json($response);
+        }
+        return response()->json($response);
 
     }
+
     public function index()
     {
         $data = $this->service->all();
