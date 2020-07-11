@@ -41,8 +41,9 @@ class FactureController extends Controller
            $value->annee;
            $value->mois;
            }
-
-      return response()->json($data);
+        $response["facture"] = $data;
+        $response["status"] = "OK";
+      return response()->json($response);
 
     }
 
