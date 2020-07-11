@@ -87,7 +87,7 @@ class FactureController extends Controller
         $fact->libelle = $request->post("libelle");
         $Date = Carbon::now();
         $DateNow = $Date->toDateTime()->format('d/m/yy');
-        $fact->dateFacture = $DateNow;
+        //$fact->dateFacture = $DateNow;
         $fact->datePaiement = $request->post("datePaiement");
         $fact->montant = $request->post("montant");
         $fact->etat = $request->post("etat");

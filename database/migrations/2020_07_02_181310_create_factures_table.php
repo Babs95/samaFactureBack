@@ -16,7 +16,7 @@ class CreateFacturesTable extends Migration
         Schema::create('factures', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('libelle');
-            $table->string('dateFacture');
+            //$table->string('dateFacture');
             $table->string('datePaiement');
             $table->string('montant');
             $table->string('etat');
