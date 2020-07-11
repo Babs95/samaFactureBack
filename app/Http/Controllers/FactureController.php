@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Facture;
+use App\Models\Fournisseur;
+use App\Models\Typepaiement;
+use App\Models\Mois;
 use App\Service\FactureService;
 use Illuminate\Http\Request;
 use Mail;
