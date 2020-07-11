@@ -31,12 +31,11 @@ class FactureController extends Controller
      */
     public function getall()
     {
+        $data = $this->service->all();
         if(empty($data)){
             $response["success"] = 0;
             return  $response;
         }else {
-            $data = $this->service->all();
-
             foreach($data as &$value){
 
             $value->user;
