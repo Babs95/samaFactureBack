@@ -105,7 +105,7 @@ class FactureController extends Controller
 
         //Mois
         $mois = new Mois();
-        $mois = Typepaiement::where('libelle',  $request->post("mois"))->firstOrFail();
+        $mois = Mois::where('libelle',  $request->post("mois"))->firstOrFail();
         $fact->mois_id = $mois->id;
         $fact->save();
        // $Categorie = Categorie::create($request->all());
