@@ -31,19 +31,25 @@ class FactureController extends Controller
      */
     public function getall()
     {
-        $data = $this->service->all();
+        if(empty($data)){
+            $response["success"] = 0;
+            return  $response;
+        }else {
+            $data = $this->service->all();
 
-        foreach($data as &$value){
+            foreach($data as &$value){
 
-           $value->user;
-           $value->fournisseur;
-           $value->typepaiement;
-           $value->annee;
-           $value->mois;
-           }
-        $response["facture"] = $data;
-        $response["status"] = "OK";
-      return response()->json($response);
+            $value->user;
+            $value->fournisseur;
+            $value->typepaiement;
+            $value->annee;
+            $value->mois;
+            }
+            $response["facture"] = $data;
+            $response["success"] = 1;
+
+            return response()->json($response);
+        }
 
     }
 
