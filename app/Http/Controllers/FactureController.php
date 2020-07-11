@@ -85,16 +85,28 @@ class FactureController extends Controller
         $Date = Carbon::now();
         $DateNow = $Date->toDateTime()->format('d/m/yy');
         $fact->dateFacture = $DateNow;
-        $fact->datePaiement = $request->post("montant");
+        $fact->datePaiement = $request->post("datePaiement");
         $fact->montant = $request->post("montant");
         $fact->etat = $request->post("etat");
         $fact->user_id = $request->post("user_id");
+
+        //Fournisseur
         $fournisseur = new Fournisseur();
-        $fournisseur = Fournisseur::where('libelle', $id)->firstOrFail();
-        $fact->fournisseur_id = $request->post("fournisseur_id");
-        $fact->typepaiement_id = $request->post("typepaiement_id");
+        $fournisseur = Fournisseur::where('libelle',  $request->post("fournisseur"))->firstOrFail();
+        $fact->fournisseur_id = $fournisseur->id;
+
+        //TypePaiement
+        $type = new Typepaiement();
+        $type = Typepaiement::where('libelle',  $request->post("typepaiement"))->firstOrFail();
+        $fact->typepaiement_id = $type->id;
+
+        //Recupération annee en cours
         $fact->annee_id = $this->GetAnneeEncours();
-        $fact->mois_id = $request->post("mois_id");
+
+        //Mois
+        $mois = new Mois();
+        $mois = Typepaiement::where('libelle',  $request->post("mois"))->firstOrFail();
+        $fact->mois_id = $mois->id;
         $fact->save();
        // $Categorie = Categorie::create($request->all());
         return response()->json('Added succesfully');
