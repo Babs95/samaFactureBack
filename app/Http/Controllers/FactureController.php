@@ -28,22 +28,34 @@ class FactureController extends Controller
      */
     public function getall()
     {
+        $data = $this->service->all();
 
+        foreach($data as &$value){
 
-        $users = Facture::all();
+           $value->user;
+           $value->fournisseur;
+           $value->typepaiement;
+           $value->annee;
+           $value->mois;
+           }
 
-       return response()->json($users);
-
-
+      return response()->json($data);
 
     }
+
     public function index()
     {
         $data = $this->service->all();
-        // foreach($data as &$value){
-        //     $value->users;
-        // }
-        return $data;
+
+        foreach($data as &$value){
+
+           $value->user;
+           $value->fournisseur;
+           $value->typepaiement;
+           $value->annee;
+           $value->mois;
+           }
+      return response()->json($data);
     }
 
     /**
@@ -72,10 +84,13 @@ class FactureController extends Controller
         $fact->libelle = $request->post("libelle");
         $Date = Carbon::now();
         $DateNow = $Date->toDateTime()->format('d/m/yy');
-        $fact->datePaiement = $DateNow;
+        $fact->dateFacture = $DateNow;
+        $fact->datePaiement = $request->post("montant");
         $fact->montant = $request->post("montant");
         $fact->etat = $request->post("etat");
         $fact->user_id = $request->post("user_id");
+        $fournisseur = new Fournisseur();
+        $fournisseur = Fournisseur::where('libelle', $id)->firstOrFail();
         $fact->fournisseur_id = $request->post("fournisseur_id");
         $fact->typepaiement_id = $request->post("typepaiement_id");
         $fact->annee_id = $this->GetAnneeEncours();
